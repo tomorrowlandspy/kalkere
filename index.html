@@ -6,199 +6,179 @@
 <title>Survey Link Generator</title>
 <style>
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         margin: 0;
-        padding: 20px;
-        background-color: #f5f7fa;
+        padding: 15px;
+        background-color: #f8f9fa;
         color: #333;
     }
     .container {
         max-width: 1200px;
         margin: 0 auto;
         background: white;
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     h1 {
-        text-align: center;
-        margin-bottom: 25px;
-        color: #2c3e50;
+        margin: 0 0 15px 0;
+        color: #333;
+        font-size: 20px;
         font-weight: 600;
     }
     .filter-container {
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin: 15px 0 25px 0;
-        gap: 10px;
+        gap: 8px;
     }
     .filter-label {
-        font-size: 16px;
-        font-weight: 500;
-        color: #2980b9;
+        font-size: 14px;
+        color: #555;
     }
     .filter-select {
-        font-size: 16px;
-        padding: 6px 12px;
-        border-radius: 6px;
-        border: 1px solid #3498db;
-        background: #ecf0f1;
-        color: #2c3e50;
-        transition: border 0.2s;
-    }
-    .filter-select:focus {
-        border-color: #2980b9;
-        outline: none;
+        font-size: 14px;
+        padding: 5px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: white;
     }
     .file-section {
-        text-align: center;
-        margin: 25px 0;
-        padding: 25px;
-        border: 2px dashed #3498db;
-        border-radius: 10px;
-        background-color: #f8fafc;
+        margin-bottom: 20px;
     }
     .file-input-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
+        gap: 8px;
+        margin-bottom: 15px;
     }
     .file-label {
-        font-weight: bold;
-        font-size: 16px;
-        color: white;
-        background: #3498db;
-        padding: 10px 20px;
-        border-radius: 6px;
+        font-size: 14px;
+        color: #333;
+        background: #f0f0f0;
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
         cursor: pointer;
-        transition: all 0.2s;
+        text-align: center;
+        transition: background 0.2s;
     }
     .file-label:hover {
-        background: #2980b9;
+        background: #e8e8e8;
     }
     input[type="file"] {
         display: none;
     }
     .file-name {
-        font-size: 14px;
+        font-size: 13px;
         color: #666;
-        background: white;
-        padding: 8px 15px;
-        border-radius: 6px;
-        border: 1px solid #ddd;
-        max-width: 100%;
+        padding: 6px 0;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
     .button-group {
         display: flex;
-        gap: 15px;
-        justify-content: center;
-        margin: 25px 0;
-        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
     }
     .btn {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 6px;
+        padding: 8px 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
         cursor: pointer;
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 14px;
+        background: #f8f8f8;
+        color: #333;
         transition: all 0.2s;
     }
+    .btn:hover {
+        background: #f0f0f0;
+    }
     .btn-primary { 
-        background-color: #3498db; 
+        background-color: #007bff; 
         color: white; 
+        border-color: #007bff;
     }
     .btn-primary:hover { 
-        background-color: #2980b9; 
+        background-color: #0056b3; 
     }
     .btn-success { 
-        background-color: #27ae60; 
+        background-color: #28a745; 
         color: white; 
+        border-color: #28a745;
     }
     .btn-success:hover { 
-        background-color: #219653; 
+        background-color: #1e7e34; 
     }
     .btn-warning { 
-        background-color: #e67e22; 
-        color: white; 
+        background-color: #ffc107; 
+        color: #333; 
+        border-color: #ffc107;
     }
     .btn-warning:hover { 
-        background-color: #d35400; 
+        background-color: #e0a800; 
     }
     .btn:disabled { 
-        background-color: #bdc3c7; 
-        color: #7f8c8d;
+        background-color: #e9ecef; 
+        color: #6c757d;
         cursor: not-allowed; 
+        border-color: #dee2e6;
     }
     table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 25px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        background: white;
+        margin-top: 15px;
+        border: 1px solid #dee2e6;
+        font-size: 13px;
     }
     th, td {
-        border-bottom: 1px solid #ddd;
-        padding: 12px;
+        border: 1px solid #dee2e6;
+        padding: 8px;
         text-align: left;
     }
     th {
-        background-color: #34495e;
-        color: white;
+        background-color: #f8f9fa;
+        color: #333;
         font-weight: 600;
     }
-    tr:nth-child(even) { 
-        background-color: #f8f9fa; 
-    }
     .copy-btn {
-        background-color: #2ecc71;
+        background-color: #6c757d;
         color: white;
         border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
+        padding: 4px 8px;
+        border-radius: 3px;
         cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: all 0.2s;
+        font-size: 12px;
+        transition: background 0.2s;
     }
     .copy-btn:hover { 
-        background-color: #27ae60; 
+        background-color: #5a6268; 
     }
     .copy-btn.copied {
-        background-color: #e74c3c;
+        background-color: #28a745;
         cursor: not-allowed;
     }
     .copy-btn:disabled {
-        background-color: #95a5a6;
+        background-color: #ced4da;
+        color: #6c757d;
         cursor: not-allowed;
     }
     .status {
-        text-align: center;
-        margin: 25px 0;
-        padding: 15px;
-        border-radius: 6px;
-        font-weight: 500;
+        margin: 10px 0;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 13px;
     }
     .status.success { 
-        background-color: #d5f4e6; 
-        color: #27ae60; 
-        border: 1px solid #2ecc71;
+        background-color: #d4edda; 
+        color: #155724; 
+        border: 1px solid #c3e6cb;
     }
     .status.error { 
-        background-color: #fadbd8; 
-        color: #c0392b; 
-        border: 1px solid #e74c3c;
+        background-color: #f8d7da; 
+        color: #721c24; 
+        border: 1px solid #f5c6cb;
     }
     .status.info { 
         background-color: #d6eaf8; 
@@ -206,58 +186,56 @@
         border: 1px solid #3498db;
     }
     .table-container {
-        max-height: 600px;
+        max-height: 400px;
         overflow-y: auto;
-        border: 1px solid #ddd;
-        border-radius: 8px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
     }
     .summary {
         background: #f8f9fa;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 20px 0;
-        border-left: 4px solid #3498db;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+        border-left: 3px solid #007bff;
+        font-size: 13px;
     }
-    
-    /* Responsive adjustments */
+    .summary h3 {
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .summary p {
+        margin: 4px 0;
+    }
+
     @media (max-width: 768px) {
         .container {
             padding: 15px;
         }
-        h1 {
-            font-size: 24px;
-        }
-        .file-section {
-            padding: 20px 15px;
-        }
-        .filter-container {
-            flex-direction: column;
-            align-items: flex-start;
-        }
         .button-group {
             flex-direction: column;
-            align-items: center;
         }
         .btn {
             width: 100%;
-            max-width: 300px;
+        }
+        .filter-container {
+            flex-wrap: wrap;
         }
         table {
-            font-size: 14px;
+            font-size: 12px;
         }
         th, td {
-            padding: 8px;
+            padding: 6px;
         }
     }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>ARYA STARK WINTER FELL </h1>
+    <h1>ARYA STARK WINTER FELL</h1>
 
-    <!-- FILTER ADDED HERE -->
     <div class="filter-container">
-        <label for="salesTypeFilter" class="filter-label">Sales Type Filter:</label>
+        <label for="salesTypeFilter" class="filter-label">Filter:</label>
         <select id="salesTypeFilter" class="filter-select">
             <option value="ALL">All</option>
             <option value="DINE-IN">DINE-IN</option>
@@ -411,10 +389,8 @@ function convertExcelTime(serial) {
 }
 
 function shouldFilterOutRow(row) {
-    // Check if POS Receipt contains K855SWG, K855ZMT, or K855MAGIC
     const posReceipt = getRowValue(row, ['POS Receipt No.', 'POS Receipt No', 'POSReceiptNo']);
     if (posReceipt) {
-        // Check for any of the patterns in the POS Receipt
         if (typeof posReceipt === 'string') {
             if (posReceipt.includes('K855SWG') || 
                 posReceipt.includes('K855ZMT') || 
@@ -445,7 +421,6 @@ function processFile() {
             let headerRowIndex = -1;
             let dataStartRow = -1;
             
-            // Find header row
             for (let R = range.s.r; R <= range.e.r; ++R) {
                 const cellAddress = XLSX.utils.encode_cell({c: 0, r: R});
                 const cell = worksheet[cellAddress];
@@ -457,7 +432,6 @@ function processFile() {
             }
             
             if (headerRowIndex === -1) {
-                // Try alternative header names
                 for (let R = range.s.r; R <= range.e.r; ++R) {
                     const cellAddress = XLSX.utils.encode_cell({c: 0, r: R});
                     const cell = worksheet[cellAddress];
@@ -475,7 +449,6 @@ function processFile() {
                 }
             }
             
-            // Create new range from header row to end
             const newRange = XLSX.utils.encode_range({
                 s: {c: range.s.c, r: headerRowIndex},
                 e: {c: range.e.c, r: range.e.r}
@@ -492,7 +465,6 @@ function processFile() {
 
             sheetData.forEach((row, index) => {
                 try {
-                    // Filter out rows with K855SWG, K855ZMT, or K855MAGIC in POS Receipt
                     if (shouldFilterOutRow(row)) {
                         filteredCount++;
                         console.log("Filtered out row:", row);
@@ -527,17 +499,16 @@ function processFile() {
                 errors: errorCount
             });
 
-            // Apply initial filter
             filterLinks();
 
             updateSummary(processedCount, errorCount, filteredCount, sheetData.length);
             
             if (processedCount > 0) {
-                showStatus(`Successfully generated ${processedCount} survey links (Filtered out: ${filteredCount})`, 'success');
+                showStatus(`Generated ${processedCount} links (Filtered: ${filteredCount})`, 'success');
                 document.getElementById('copyAllBtn').disabled = false;
                 document.getElementById('exportBtn').disabled = false;
             } else {
-                showStatus(`No valid records found to generate links. Filtered out: ${filteredCount}`, 'error');
+                showStatus(`No valid records found. Filtered: ${filteredCount}`, 'error');
             }
         } catch (err) {
             console.error("Error processing file:", err);
@@ -595,7 +566,6 @@ function filterLinks() {
     console.log("Filtered data:", currentData.length);
     renderTable(currentData);
     
-    // Enable/disable copy and export buttons based on filtered data
     document.getElementById('copyAllBtn').disabled = currentData.length === 0;
     document.getElementById('exportBtn').disabled = currentData.length === 0;
 }
@@ -603,10 +573,10 @@ function filterLinks() {
 function updateSummary(processed, errors, filtered, total) {
     const summaryEl = document.getElementById('summary');
     summaryEl.innerHTML = `
-        <h3>Processing Summary</h3>
+        <h3>Summary</h3>
         <p><strong>Total Records:</strong> ${total}</p>
         <p><strong>Successfully Processed:</strong> ${processed}</p>
-        <p><strong>Filtered Out (K855SWG/ZMT/MAGIC):</strong> ${filtered}</p>
+        <p><strong>Filtered Out:</strong> ${filtered}</p>
         <p><strong>Errors/Skipped:</strong> ${errors}</p>
     `;
     summaryEl.style.display = 'block';
@@ -701,7 +671,6 @@ document.getElementById('fileInput').addEventListener('change', function() {
     document.getElementById('generateBtn').disabled = !this.files.length;
 });
 
-// Listen to sales type filter changes
 document.getElementById('salesTypeFilter').addEventListener('change', filterLinks);
 </script>
 </body>
